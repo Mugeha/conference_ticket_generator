@@ -1,9 +1,9 @@
-import Background from "./components/Background"
-import Form from "./components/Form"
-import logo from './assets/images/logo-full.svg'
+import Background from "./Components/Background"
+import Form from "./Components/Form"
+import logo from './Assets/images/logo-full.svg'
 import { useState } from "react"
 import { Routes, Route } from "react-router-dom"
-import Ticket from "./components/Ticket"
+import Ticket from "./Components/Ticket"
 
 const App = () => {
   const [avatarImage, setAvatarImage] = useState(null);

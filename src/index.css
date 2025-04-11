@@ -1,21 +1,21 @@
 @font-face {
   font-family: 'Inconsolata-Bold';
-  src: url('./assets/fonts/Inconsolata-Bold.ttf');
+  src: url('./Assets/fonts/Inconsolata-Bold.ttf');
 }
 
 @font-face {
   font-family: 'Inconsolata-Regular';
-  src: url('./assets/fonts/Inconsolata-Regular.ttf');
+  src: url('./Assets/fonts/Inconsolata-Regular.ttf');
 }
 
 @font-face {
   font-family: 'Inconsolata-ExtraBold';
-  src: url('./assets/fonts/Inconsolata-ExtraBold.ttf');
+  src: url('./Assets/fonts/Inconsolata-ExtraBold.ttf');
 }
 
 @font-face {
   font-family: 'Inconsolata-Medium';
-  src: url('./assets/fonts/Inconsolata-Medium.ttf');
+  src: url('./Assets/fonts/Inconsolata-Medium.ttf');
 }
 
 
