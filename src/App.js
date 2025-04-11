@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Background from "./components/Background"
+import Form from "./components/Form"
+import logo from './assets/images/logo-full.svg'
+import { useState } from "react"
+import { Routes, Route } from "react-router-dom"
+import Ticket from "./components/Ticket"
 
-function App() {
+const App = () => {
+  const [avatarImage, setAvatarImage] = useState(null);
+  const [githubUsername, setGithubUsername] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Background />
+      
+      <div className="logo">
+        <img src={logo} alt="logo" />
+      </div>
+
+      <Routes>
+        <Route path="/conference-ticket-generator/" element={<Form setAvatarImage={setAvatarImage} setGithubUsername={setGithubUsername} setUsername={setUsername} setEmail={setEmail} />} />
+        <Route path="/conference-ticket-generator/ticket" element={<Ticket avatarImage={avatarImage} githubUsername={githubUsername} username={username} email={email} />} />
+      </Routes>
+      
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
