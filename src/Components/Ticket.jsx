@@ -9,17 +9,21 @@ const Ticket = ({ avatarImage, githubUsername, username, email }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (avatarImage === null || githubUsername === '' || username === '' || email === '') {
+        // Redirect if any essential data is missing
+        if (!avatarImage || !githubUsername || !username || !email) {
             navigate('/conference-ticket-generator/');
+            return;
         }
-        if (avatarImage) {
-            const url = URL.createObjectURL(avatarImage);
-            setAvatarUrl(url);
 
-            // Clean up the URL object when the component unmounts
-            return () => URL.revokeObjectURL(url);
-        }
-    }, [avatarImage]);
+        // Only create object URL if avatarImage is a valid blob
+        const url = URL.createObjectURL(avatarImage);
+        setAvatarUrl(url);
+
+        // Always return a cleanup function
+        return () => {
+            URL.revokeObjectURL(url);
+        };
+    }, [avatarImage, githubUsername, username, email, navigate]);
 
     return (
         <div className='ticket-page'>
@@ -45,6 +49,7 @@ const Ticket = ({ avatarImage, githubUsername, username, email }) => {
                     <img src={logo} id='ticket-logo' alt="Event logo" />
                     <p id='ticket-info'>Jan 31, 2025 / Austin, TX</p>
                 </div>
+
                 <div className='ticket-footer'>
                     {avatarUrl && (
                         <img

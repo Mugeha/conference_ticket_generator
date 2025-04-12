@@ -3,7 +3,7 @@ import img2 from '../Assets/images/background-mobile.png';
 import pattern_circle from '../Assets/images/pattern-circle.svg';
 import pattern_lines from '../Assets/images/pattern-lines.svg'
 import pattern_top from '../Assets/images/pattern-squiggly-line-top.svg'
-import pattern_bottom from '../Assets/images/pattern-squiggly-line-bottom.svg'
+import pattern_bottom from '../Assets/images/pattern-squiggly-line-bottom-desktop.svg'
 
 const Background = () => {
     return (

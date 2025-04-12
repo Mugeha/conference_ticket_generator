@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const MAX_SIZE = 500 * 1024; // 500KB
 
 
-const DragAndDrop = ({ setAvatarImage, setEmail, setUsername, setGithubUsername }) => {
+const Form = ({ setAvatarImage, setEmail, setUsername, setGithubUsername }) => {
     const [preview, setPreview] = useState(null);
     const [uploadError, setUploadError] = useState(false);
 
@@ -13,7 +13,7 @@ const DragAndDrop = ({ setAvatarImage, setEmail, setUsername, setGithubUsername 
 
     const onDrop = (acceptedFiles, rejectedFiles) => {
         if (rejectedFiles.length > 0) {
-            const { file, errors } = rejectedFiles[0];
+            const { errors } = rejectedFiles[0];  // Removed 'file' from here
             errors.forEach(error => {
                 if (error.code === 'file-too-large') {
                     setUploadError(true);
@@ -30,6 +30,7 @@ const DragAndDrop = ({ setAvatarImage, setEmail, setUsername, setGithubUsername 
             reader.readAsDataURL(file);
         }
     };
+    
 
     const { getRootProps, getInputProps } = useDropzone({
         onDrop,
@@ -156,4 +157,4 @@ const DragAndDrop = ({ setAvatarImage, setEmail, setUsername, setGithubUsername 
     );
 };
 
-export default DragAndDrop;
+export default Form;
